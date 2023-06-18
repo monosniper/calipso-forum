@@ -42,9 +42,9 @@ class HomeController extends Controller
         $post->increment('views');
         $replies = $post->replies();
 
-        return view('post', ['post' => $post->with(['author' => function($builder) {
+        return view('post', ['post' => $post->load(['author' => function($builder) {
             $builder->withCount('posts')->withSum('posts', 'views');
-        }])->first(), 'replies' => $replies->with(['author' => function($builder) {
+        }]), 'replies' => $replies->with(['author' => function($builder) {
             $builder->withCount('posts')->withSum('posts', 'views');
         }])->paginate(10)]);
     }
