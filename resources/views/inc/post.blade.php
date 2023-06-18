@@ -11,8 +11,10 @@
         {{ $post->replies_count }} replies <br> {{ $post->views }} views
     </div>
 
-    <div class="last-reply">
-        {{ $post->last_reply()->created_at->toFormattedDateString() }}
-        <br>By <b><a href="#">{{ $post->last_reply()->author->name }}</a></b>
-    </div>
+    @if($post->replies_count)
+        <div class="last-reply">
+            {{ $post->last_reply()->created_at->toFormattedDateString() }}
+            <br>By <b><a href="#">{{ $post->last_reply()->author->name }}</a></b>
+        </div>
+    @endif
 </div>
