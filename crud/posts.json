@@ -1,0 +1,60 @@
+{
+    "fields": [
+        {
+            "name": "title",
+            "type": "string"
+        },
+        {
+            "name": "content",
+            "type": "text"
+        },
+        {
+            "name": "status",
+            "type": "select",
+            "options": [
+                "open",
+                "closed",
+                "closed_without_solution"
+            ]
+        },
+        {
+            "name": "views",
+            "type": "integer",
+            "default": 0
+        },
+        {
+            "name": "thread_id",
+            "type": "integer#unsigned"
+        },
+        {
+            "name": "user_id",
+            "type": "integer#unsigned"
+        }
+    ],
+    "foreign_keys": [
+        {
+            "column": "thread_id",
+            "references": "id",
+            "on": "threads",
+            "onDelete": "cascade"
+        },
+        {
+            "column": "user_id",
+            "references": "id",
+            "on": "users",
+            "onDelete": "cascade"
+        }
+    ],
+    "relationships": [
+        {
+            "name": "thread",
+            "type": "belongsTo",
+            "class": "App\\Models\\Thread"
+        },
+        {
+            "name": "user",
+            "type": "belongsTo",
+            "class": "App\\Models\\User"
+        }
+    ]
+}

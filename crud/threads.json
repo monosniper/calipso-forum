@@ -1,0 +1,31 @@
+{
+    "fields": [
+        {
+            "name": "title",
+            "type": "string"
+        },
+        {
+            "name": "description",
+            "type": "string"
+        },
+        {
+            "name": "category_id",
+            "type": "integer#unsigned"
+        }
+    ],
+    "foreign_keys": [
+        {
+            "column": "category_id",
+            "references": "id",
+            "on": "categories",
+            "onDelete": "cascade"
+        }
+    ],
+    "relationships": [
+        {
+            "name": "category",
+            "type": "belongsTo",
+            "class": "App\\Models\\Category"
+        }
+    ]
+}

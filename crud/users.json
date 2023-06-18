@@ -1,0 +1,37 @@
+{
+    "fields": [
+        {
+            "name": "name",
+            "type": "string"
+        },
+        {
+            "name": "email",
+            "type": "email"
+        },
+        {
+            "name": "role_id",
+            "type": "integer#unsigned"
+        }
+    ],
+    "validations": [
+        {
+            "field": "email",
+            "rules": "unique"
+        }
+    ],
+    "foreign_keys": [
+        {
+            "column": "role_id",
+            "references": "id",
+            "on": "roles",
+            "onDelete": "cascade"
+        }
+    ],
+    "relationships": [
+        {
+            "name": "role",
+            "type": "belongsTo",
+            "class": "App\\Models\\Role"
+        }
+    ]
+}
