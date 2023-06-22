@@ -28,7 +28,7 @@
                 <div>Total views: <u>{{ $post->author->posts_sum_views }}</u></div>
             </div>
             <div class="content">
-                {{ $post->content }}
+                {!! $post->content !!}
                 @auth
                     <div class="comment">
                         <button onclick="showComment()">Comment</button>
@@ -71,7 +71,7 @@
                             <div class="answer__body">{{ $reply->parent->content }}</div>
                         </div>
                     @endif
-                    {{ $reply->content }}
+                    {!! $reply->content !!}
                     @auth
                         <div class="comment">
                             <button onclick="showReply({{ $reply->id }})">Reply</button>
