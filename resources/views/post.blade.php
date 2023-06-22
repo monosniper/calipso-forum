@@ -29,9 +29,11 @@
             </div>
             <div class="content">
                 {{ $post->content }}
-                <div class="comment">
-                    <button onclick="showComment()">Comment</button>
-                </div>
+                @auth
+                    <div class="comment">
+                        <button onclick="showComment()">Comment</button>
+                    </div>
+                @endauth
             </div>
         </div>
     </div>
