@@ -7,6 +7,14 @@
     list-style: none;
 }
 
+.transaction__status {
+    color: #7affa9;
+}
+
+.transaction__date {
+    color: #ababab;
+}
+
 .pagination > li > a, .pagination > li > span {
     background-color: #cccccc2b;
     padding: 3px 9px;

@@ -49,22 +49,23 @@
                 </div>
             </div>
             <div class="p-4 sm:p-8 bg-white dark:bg-gray-800 shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    <section>
-                        <header>
-                            <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
-                                Transactions history
-                            </h2>
-                        </header>
-                        @foreach($transactions as $transaction)
-                            <div class="transaction">
-                                <div class="transaction__date">{{ $transaction->created_at->toDayDateTimeString() }}</div>
-                                <div class="transaction__type">{{ $transaction->type }}</div>
+                <section>
+                    <header>
+                        <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
+                            Transactions history
+                        </h2>
+                    </header>
+                    @foreach($transactions as $transaction)
+                        <div class="transaction">
+                            <div class="transaction__left">
+                                <div class="transaction__status">Success</div>
                                 <div class="transaction__amount">${{ $transaction->amount }}</div>
                             </div>
-                        @endforeach
-                    </section>
-                </div>
+                            <div class="transaction__type">Type: {{ $transaction->type }}</div>
+                            <div class="transaction__date">{{ $transaction->created_at->toDayDateTimeString() }}</div>
+                        </div>
+                    @endforeach
+                </section>
             </div>
         </div>
     </div>
