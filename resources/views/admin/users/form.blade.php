@@ -16,8 +16,8 @@
 <div class="form-group {{ $errors->has('role_id') ? 'has-error' : ''}}">
     <label for="role_id" class="control-label">{{ 'Role Id' }}</label>
     <select class="form-control" name="role_id" id="role_id">
-        <option {{ $user->role_id === 1 ? 'selected' : '' }} value="1">User</option>
-        <option {{ $user->role_id === 2 ? 'selected' : '' }} value="2">Admin</option>
+        <option {{ isset($user->role_id) && $user->role_id === 1 ? 'selected' : '' }} value="1">User</option>
+        <option {{ isset($user->role_id) && $user->role_id === 2 ? 'selected' : '' }} value="2">Admin</option>
     </select>
     {!! $errors->first('role_id', '<p class="help-block">:message</p>') !!}
 </div>
