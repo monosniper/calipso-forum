@@ -29,7 +29,7 @@
                             </a>
                         </h4>
                         <p>
-                            {{ $product->description }}
+                            {!! $product->description !!}
                         </p>
                         <div class="m-bot15"> <strong>Price : </strong> <span class="pro-price"> ${{ $product->price }}</span></div>
                         <a href="{{ route('buy', $product->id) }}">
