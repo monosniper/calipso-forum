@@ -29,7 +29,7 @@
                             </a>
                         </h4>
                         <p>
-                            {!! $product->description !!}
+                            {!! str_replace(["\r\n"], '<br />', $product->description) !!}
                         </p>
                         <div class="m-bot15"> <strong>Price : </strong> <span class="pro-price"> ${{ $product->price }}</span></div>
                         <a href="{{ route('buy', $product->id) }}">
@@ -41,3 +41,5 @@
         </div>
     </div>
 @endsection
+
+
