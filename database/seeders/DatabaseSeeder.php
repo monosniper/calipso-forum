@@ -13,9 +13,10 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $this->call([
-            TransactionsSeeder::class,
+//            TransactionsSeeder::class,
+//            UsersSeed::class,
         ]);
-//         \App\Models\User::factory()->count(6348)->create();
+         \App\Models\User::factory()->count(1248)->create();
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',

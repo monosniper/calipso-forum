@@ -5,6 +5,7 @@ namespace Database\Factories;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 /**
@@ -12,6 +13,14 @@ use Illuminate\Support\Str;
  */
 class UserFactory extends Factory
 {
+    public function getRandomAvatar() {
+        $avatar = '';
+
+        $avatars = Storage::files('public/avatars');
+
+        return $avatar;
+    }
+
     /**
      * Define the model's default state.
      *
@@ -20,11 +29,25 @@ class UserFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => fake()->name(),
-            'email' => fake()->unique()->safeEmail(),
+            'name' => fake()->unique()->userName(),
+            'email' => fake()->unique()->freeEmail(),
             'email_verified_at' => now(),
             'password' => Hash::make('12345678'),
             'remember_token' => Str::random(10),
+
+            // For others
+//            'deals' => 0,
+//            'balance' => 0,
+
+            // For 800
+//            'deals' => fake()->numberBetween(0, 15),
+//            'balance' => fake()->numberBetween(0, 100000),
+
+            // For top 20
+            'deals' => fake()->numberBetween(300, 720),
+            'balance' => fake()->numberBetween(100000, 600000),
+
+            'avatar' => $this->getRandomAvatar(),
         ];
     }
 
