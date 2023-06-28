@@ -24,6 +24,10 @@ class HomeController extends Controller
         return view('user', ['user' => $user]);
     }
 
+    public function users() {
+        return view('users', ['users' => User::orderBy('balance', 'desc')->withCount('posts')->withSum('posts', 'views')->get()]);
+    }
+
     public function guaranties() {
         return view('guaranties');
     }

@@ -14,11 +14,9 @@ use Illuminate\Support\Str;
 class UserFactory extends Factory
 {
     public function getRandomAvatar() {
-        $avatar = '';
+        $avatars = Storage::disk('avatars')->files('');
 
-        $avatars = Storage::files('public/avatars');
-
-        return $avatar;
+        return 'avatars/'.$avatars[array_rand($avatars)];
     }
 
     /**

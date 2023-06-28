@@ -2,6 +2,7 @@
     <a href="{{ route('home') }}" class="brand">{{ config('app.name') }}</a>
     <div class="menu">
         <a href="{{ route('shop') }}" class="menu__item">Shop</a>
+        <a href="{{ route('users') }}" class="menu__item">Users</a>
         <a href="{{ route('guaranties') }}" class="menu__item">Guaranties</a>
     </div>
     @auth

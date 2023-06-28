@@ -57,7 +57,8 @@ class User extends Authenticatable
     }
 
     public function getAvatarUrl() {
-        return $this->avatar ? Storage::disk('public')->url($this->avatar) : '#';
+        return '/'.$this->avatar;
+//        return $this->avatar ? Storage::disk('public')->url($this->avatar) : '#';
     }
 
     public function posts() {

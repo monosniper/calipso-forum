@@ -26,6 +26,8 @@
                 <img src="{{ $post->author->getAvatarUrl() }}" alt="">
                 <div>Posts: <u>{{ $post->author->posts_count }}</u></div>
                 <div>Total views: <u>{{ $post->author->posts_sum_views }}</u></div>
+                <div>Deals through a guarant: <u>{{ $post->author->deals }}</u></div>
+                <div>Deposit: <u>{{ $post->author->deposit }}</u></div>
             </div>
             <div class="content">
                 {!! $post->content !!}
@@ -60,6 +62,8 @@
                     <img src="{{ $reply->author->getAvatarUrl() }}" alt="{{ $reply->author->name }}">
                     <div>Posts: <u>{{ $reply->author->posts_count }}</u></div>
                     <div>Total views: <u>{{ $reply->author->posts_sum_views }}</u></div>
+                    <div>Deals through a guarant: <u>{{ $reply->author->deals }}</u></div>
+                    <div>Deposit: <u>{{ $reply->author->deposit }}</u></div>
                 </div>
                 <div class="content">
                     @if($reply->reply_id)
