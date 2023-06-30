@@ -8,10 +8,11 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Storage;
 use Laravel\Sanctum\HasApiTokens;
+use Musonza\Chat\Traits\Messageable;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable, Messageable;
 
     const USER_TYPE = 'user';
     const BOT_TYPE = 'bot';
@@ -75,5 +76,9 @@ class User extends Authenticatable
 
     public function transactions() {
         return $this->hasMany(Transaction::class);
+    }
+
+    public function invites() {
+        return $this->hasMany(Invite::class);
     }
 }

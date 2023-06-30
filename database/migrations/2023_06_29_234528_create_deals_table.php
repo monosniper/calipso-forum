@@ -17,6 +17,9 @@ return new class extends Migration
             $table->foreignIdFor(\Musonza\Chat\Models\Conversation::class, 'chat_id');
             $table->boolean('payed')->default(false);
             $table->boolean('completed')->default(false);
+            $table->integer('price')->nullable();
+            $table->string('wallet')->nullable();
+            $table->text('info')->nullable();
             $table->timestamps();
         });
     }

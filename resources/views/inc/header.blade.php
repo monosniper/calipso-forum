@@ -1,5 +1,7 @@
 <div class="navbar">
-    <a href="{{ route('home') }}" class="brand">{{ config('app.name') }}</a>
+    <a href="{{ route('home') }}" class="brand">
+        <img src="{{ asset('img/logo.svg') }}" alt="{{ config('app.name') }}">
+    </a>
     <div class="menu">
         @auth
             <a href="{{ route('deal') }}" class="menu__item">Make a deal</a>

@@ -30,6 +30,9 @@
                 <a href="{{ url('/admin/transactions') }}"  class="sidebar-nav__item">
                     Transactions
                 </a>
+                <a href="{{ url('/admin/deals') }}"  class="sidebar-nav__item">
+                    Deals
+                </a>
             </ul>
         </div>
     </div>

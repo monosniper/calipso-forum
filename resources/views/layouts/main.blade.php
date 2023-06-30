@@ -15,6 +15,9 @@
 <header>
     <!--NavBar Section-->
     @include('inc.header')
+    @auth
+        @include('inc.invites')
+    @endauth
     <!--SearchBox Section-->
     @yield('search')
 </header>

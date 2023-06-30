@@ -5,13 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Deal extends Model
+class Invite extends Model
 {
     use HasFactory;
 
     protected $guarded = [];
 
-    public function chat() {
-        return \Chat::conversations()->getById($this->chat_id);
+    public function from() {
+        return $this->belongsTo(User::class, 'from_id');
     }
 }
