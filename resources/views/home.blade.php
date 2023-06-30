@@ -17,7 +17,8 @@
             @foreach($category->threads as $thread)
                 <div class="subforum-row">
                     <div class="subforum-icon subforum-column center">
-                        <i class="fa fa-car center"></i>
+{{--                        <i class="fa fa-car center"></i>--}}
+                        <img width="55" src="{{ asset('img/it.png') }}" alt="{{ $thread->title }}">
                     </div>
                     <div class="subforum-description subforum-column">
                         <h4><a href="{{ route('thread', $thread->id) }}">{{ $thread->title }}</a></h4>
