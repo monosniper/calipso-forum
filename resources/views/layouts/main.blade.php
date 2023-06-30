@@ -19,6 +19,7 @@
     @yield('search')
 </header>
 <div class="container">
+    @include('inc.ads')
     @yield('content')
 </div>
 

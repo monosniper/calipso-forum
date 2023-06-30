@@ -11,6 +11,14 @@ html{
     background-color:rgb(0,0,0);
     color:#FEFEFE;
 }
+.ads {
+    display: flex;
+    flex-wrap: wrap;
+}
+.ad {
+    height: 100px;
+    width: 25%;
+}
 .username small {
     font-size: 12px;
     color: #d5d5d5;

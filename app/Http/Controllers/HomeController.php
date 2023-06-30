@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Deal;
 use App\Models\Post;
 use App\Models\Product;
 use App\Models\Reply;
@@ -11,6 +12,7 @@ use App\Models\Transaction;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Musonza\Chat\Chat;
 
 class HomeController extends Controller
 {
@@ -22,6 +24,20 @@ class HomeController extends Controller
 
     public function user(User $user) {
         return view('user', ['user' => $user]);
+    }
+
+    public function deal() {
+        $deal = Deal::where('user_id', auth()->id())->first();
+        if(!$deal) $deal = Deal::create([
+            'user_id' => auth()->id(),
+            'chat_id' => Chat::createConversation([
+                auth()->user(),
+                // Guarantor bot
+                User::find(0),
+            ])->id,
+        ]);
+
+        return view('deal', ['deal' => $deal]);
     }
 
     public function users() {

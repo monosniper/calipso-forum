@@ -1,6 +1,9 @@
 <div class="navbar">
     <a href="{{ route('home') }}" class="brand">{{ config('app.name') }}</a>
     <div class="menu">
+        @auth
+            <a href="{{ route('deal') }}" class="menu__item">Make a deal</a>
+        @endauth
         <a href="{{ route('shop') }}" class="menu__item">Shop</a>
         <a href="{{ route('users') }}" class="menu__item">Users</a>
         <a href="{{ route('guaranties') }}" class="menu__item">Guaranties</a>
