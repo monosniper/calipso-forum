@@ -58,4 +58,11 @@ class DealsController extends Controller
 
         return redirect('admin/deals')->with('flash_message', 'Deal updated!');
     }
+
+    public function destroy($id)
+    {
+        Deal::destroy($id);
+
+        return redirect('admin/deals')->with('flash_message', 'Deal deleted!');
+    }
 }

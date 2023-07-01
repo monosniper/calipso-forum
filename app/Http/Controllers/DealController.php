@@ -41,7 +41,7 @@ class DealController extends Controller
             'price' => $request->price
         ]);
 
-        Chat::message('wait wait wait wait')
+        Chat::message('Transaction processing in progress')
             ->from($guarantor)
             ->to($deal->chat())
             ->send();
@@ -115,7 +115,7 @@ class DealController extends Controller
         $deal->update(['payed' => true]);
         $guarantor = User::find(1337);
 
-        Chat::message("Wait for admin")
+        Chat::message("Deal completed, good luck")
             ->from($guarantor)
             ->to($deal->chat())
             ->send();
