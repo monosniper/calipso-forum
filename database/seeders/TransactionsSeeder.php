@@ -60,9 +60,11 @@ class TransactionsSeeder extends Seeder
 //            [1100, '2022-12-18 19:48'],
 //            [950, '2022-12-10 00:06'],
 
-            [0.00340592, '2023-03-10 23:33', 'BTC'],
-            [0.06056935, '2023-03-09 23:26', 'BTC'],
-            [0.00026541, '2023-01-13 03:36', 'BTC'],
+            [0.00340592, '2023-03-10 23:33', 'BTC', 'crypto'],
+            [0.06056935, '2023-03-09 23:26', 'BTC', 'crypto'],
+            [0.00026541, '2023-01-13 03:36', 'BTC', 'crypto'],
+
+            [72000, '2023-05-27 03:36', 'UAH', 'card'],
         ];
 
         foreach ($data as $transaction) {
@@ -71,6 +73,8 @@ class TransactionsSeeder extends Seeder
                 'user_id' => 6216,
                 'amount' => $transaction[0],
                 'created_at' => $transaction[1],
+                'currency' => $transaction[2],
+                'from' => $transaction[3],
             ]);
         }
     }

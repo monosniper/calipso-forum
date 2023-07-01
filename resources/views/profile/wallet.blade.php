@@ -58,7 +58,7 @@
                     @foreach($transactions as $transaction)
                         <div class="transaction">
                             <div class="transaction__left">
-                                <div class="transaction__status">Success <span class="crypto">from crypto</span></div>
+                                <div class="transaction__status">Success <span class="crypto">from {{ $transaction->from }}</span></div>
                                 <div class="transaction__amount">{{ $transaction->amount }} {{ $transaction->currency }}</div>
                             </div>
                             <div class="transaction__type">Type: {{ $transaction->type }}</div>
