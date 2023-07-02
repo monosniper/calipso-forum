@@ -14,7 +14,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
 //            TransactionsSeeder::class,
-//            UsersSeed::class,
+            UsersSeed::class,
         ]);
 //         \App\Models\User::factory()->count(428)->create();
 
@@ -23,17 +23,17 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        $posts = \App\Models\Post::all();
-
-        foreach ($posts as $post) {
-
-            $post->update(['user_id' => \App\Models\User::inRandomOrder()->first()->id]);
-        }
-
-        $replies = \App\Models\Reply::all();
-
-        foreach ($replies as $reply) {
-            $reply->update(['user_id' => \App\Models\User::inRandomOrder()->first()->id]);
-        }
+//        $posts = \App\Models\Post::all();
+//
+//        foreach ($posts as $post) {
+//
+//            $post->update(['user_id' => \App\Models\User::inRandomOrder()->first()->id]);
+//        }
+//
+//        $replies = \App\Models\Reply::all();
+//
+//        foreach ($replies as $reply) {
+//            $reply->update(['user_id' => \App\Models\User::inRandomOrder()->first()->id]);
+//        }
     }
 }

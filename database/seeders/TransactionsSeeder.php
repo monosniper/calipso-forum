@@ -65,6 +65,7 @@ class TransactionsSeeder extends Seeder
             [0.00026541, '2023-01-13 03:36', 'BTC', 'crypto'],
 
             [72000, '2023-05-27 03:36', 'UAH', 'card'],
+            [262000, '2023-03-17 03:36', 'UAH', 'card'],
         ];
 
         foreach ($data as $transaction) {

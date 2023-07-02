@@ -20,15 +20,7 @@
         </div>
 
         <div class="body">
-            <div class="authors">
-                <div class="username"><a href="#">{{ $post->author->name }}</a> <small> on {{ $post->created_at->toDayDateTimeString() }}</small></div>
-                <div>{{ $post->author->getRole() }}</div>
-                <img src="{{ $post->author->getAvatarUrl() }}" alt="">
-                <div>Posts: <u>{{ $post->author->posts_count }}</u></div>
-                <div>Total views: <u>{{ $post->author->posts_sum_views }}</u></div>
-                <div>Deals through a guarant: <u>{{ $post->author->deals }}</u></div>
-                <div>Deposit: <u>${{ $post->author->balance }}</u></div>
-            </div>
+            @include('inc.user', ['user' => $post->author, 'created_at' => $post->created_at])
             <div class="content">
                 {!! $post->content !!}
                 @auth
@@ -56,15 +48,7 @@
     @foreach($replies as $reply)
         <div class="comments-container">
             <div class="body">
-                <div class="authors">
-                    <div class="username"><a href="#">{{ $reply->author->name }}</a> <small> on {{ $reply->created_at->toDayDateTimeString() }}</small></div>
-                    <div>{{ $reply->author->getRole() }}</div>
-                    <img src="{{ $reply->author->getAvatarUrl() }}" alt="{{ $reply->author->name }}">
-                    <div>Posts: <u>{{ $reply->author->posts_count }}</u></div>
-                    <div>Total views: <u>{{ $reply->author->posts_sum_views }}</u></div>
-                    <div>Deals through a guarant: <u>{{ $reply->author->deals }}</u></div>
-                    <div>Deposit: <u>${{ $reply->author->balance }}</u></div>
-                </div>
+                @include('inc.user', ['user' => $reply->author, 'created_at' => $reply->created_at])
                 <div class="content">
                     @if($reply->reply_id)
                         <div class="answer">

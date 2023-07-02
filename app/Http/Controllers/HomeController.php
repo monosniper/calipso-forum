@@ -25,7 +25,7 @@ class HomeController extends Controller
     }
 
     public function users() {
-        return view('users', ['users' => User::orderBy('balance', 'desc')->withCount('posts')->withSum('posts', 'views')->get()]);
+        return view('users', ['users' => User::orderBy('balance', 'desc')->withCount('posts')->with('roles')->withSum('posts', 'views')->get()]);
     }
 
     public function guaranties() {

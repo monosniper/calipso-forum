@@ -15,6 +15,9 @@ body {
 .chat-offline {
     color: #e4606d
 }
+.authors img {
+    max-width: 120px;
+}
 .deal__toolbar {
     display: flex;
     flex-wrap: wrap;
