@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Post;
+use Chat;
 use App\Models\Product;
 use App\Models\Reply;
 use App\Models\Thread;
@@ -15,9 +16,12 @@ use Illuminate\Support\Facades\Auth;
 class HomeController extends Controller
 {
     public function index() {
-        return view('home', ['categories' => Category::all()->load(['threads' => function($builder) {
-            $builder->withCount('posts')->with('posts');
-        }])]);
+        return view('home', [
+            'categories' => Category::paginate(2)->load(['threads' => function($builder) {
+                $builder->withCount('posts')->with('posts');
+            }]),
+//            'categories' => []
+        ]);
     }
 
     public function user(User $user) {
@@ -30,6 +34,37 @@ class HomeController extends Controller
 
     public function guaranties() {
         return view('guaranties');
+    }
+
+    public function chat() {
+        // Support user id - 9999
+        $supportBot = User::find(9999);
+
+        $participants = [$supportBot, auth()->user()];
+
+        $conversation = Chat::conversations()->between(...$participants);
+
+        if(!$conversation) {
+            $conversation = Chat::createConversation($participants)->makeDirect();
+        }
+
+        return view('inc.chat', ['messages' => $conversation->messages]);
+    }
+
+    public function chatSend(Request $request) {
+        // Support user id - 9999
+        $supportBot = User::find(9999);
+
+        $participants = [$supportBot, auth()->user()];
+
+        $conversation = Chat::conversations()->between(...$participants);
+
+        Chat::message($request->text)
+            ->from(auth()->user())
+            ->to($conversation)
+            ->send();
+
+        return response('ok');
     }
 
     public function reply(Request $request) {

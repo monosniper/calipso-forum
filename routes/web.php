@@ -29,6 +29,9 @@ Route::get('/shop', [HomeController::class, 'shop'])->name('shop');
 Route::get('/product/{product}', [HomeController::class, 'product'])->name('product');
 Route::get('/buy/{product}', [HomeController::class, 'buy'])->middleware('auth')->name('buy');
 
+Route::get('/chat', [HomeController::class, 'chat']);
+Route::post('/chat/send', [HomeController::class, 'chatSend']);
+
 Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
     Route::get('/', [AdminConttroller::class, 'index']);
 
@@ -40,6 +43,7 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
     Route::resource('products', \App\Http\Controllers\Admin\ProductsController::class);
     Route::resource('transactions', \App\Http\Controllers\Admin\TransactionsController::class);
     Route::resource('deals', \App\Http\Controllers\Admin\DealsController::class);
+    Route::resource('support', \App\Http\Controllers\Admin\SupportController::class);
 });
 
 Route::get('/dashboard', function () {

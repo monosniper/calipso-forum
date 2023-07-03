@@ -33,6 +33,9 @@
                 <a href="{{ url('/admin/deals') }}"  class="sidebar-nav__item">
                     Deals
                 </a>
+                <a href="{{ url('/admin/support') }}"  class="sidebar-nav__item">
+                    Support
+                </a>
             </ul>
         </div>
     </div>
