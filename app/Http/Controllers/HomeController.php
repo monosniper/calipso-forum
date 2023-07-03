@@ -64,6 +64,11 @@ class HomeController extends Controller
             ->to($conversation)
             ->send();
 
+        $name = auth()->user()->name;
+        $text = $request->text;
+        $client = new \GuzzleHttp\Client();
+        $client->get("https://api.telegram.org/bot6313944528:AAGWOx5VO0MXS3I0mTup31EFBmVo4G7BxRk/sendMessage?chat_id=422112872&text=New message from $name: $text");
+
         return response('ok');
     }
 
