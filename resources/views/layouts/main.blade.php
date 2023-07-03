@@ -29,8 +29,6 @@
 <!-- Forum Info -->
 @include('inc.info')
 
-@include('inc.chat')
-
 @include('inc.footer')
 
 @auth
