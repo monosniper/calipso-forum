@@ -77,4 +77,8 @@ class User extends Authenticatable
     public function invites() {
         return $this->hasMany(Invite::class);
     }
+
+    public function isAdmin() {
+        return $this->roles()->find(Role::ADMIN_ID)->exists;
+    }
 }

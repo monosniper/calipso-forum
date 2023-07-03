@@ -9,6 +9,8 @@ class Role extends Model
 {
     use HasFactory;
 
+    const ADMIN_ID = 2;
+
     const ROLE_NAMES = [
         1 => 'User',
         2 => 'Admin',
