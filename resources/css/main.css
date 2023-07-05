@@ -36,7 +36,16 @@ body {
 button {
     cursor: pointer;
 }
-.container input, .container select, .container button, .container textarea {
+.container input,
+.container select,
+.container button,
+.container textarea ,
+
+header input,
+header select,
+header button,
+header textarea
+{
     border: none;
     background: #181818 !important;
     padding: 10px 20px;
@@ -45,7 +54,14 @@ button {
     outline: none;
     box-shadow: none !important;
 }
-.container input:hover, .container select:hover, .container button:hover {
+.container input:hover,
+.container select:hover,
+.container button:hover ,
+
+header input:hover,
+header select:hover,
+header button:hover
+{
     background: #2d2d2d !important;
 }
 .pay-btn {
