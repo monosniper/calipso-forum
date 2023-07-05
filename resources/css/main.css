@@ -6,7 +6,7 @@
 }
 body {
     background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='30' height='30' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.227 0c.687 0 1.227.54 1.227 1.227s-.54 1.227-1.227 1.227S0 1.914 0 1.227.54 0 1.227 0z' fill='rgba(255,255,255,0.07)'/%3E%3C/svg%3E");
-    background-color: rgba(17,24,39, 1);
+    background-color: rgb(11 0 30);
 }
 .chat-online {
     color: #34ce57
@@ -23,6 +23,30 @@ body {
     flex-wrap: wrap;
     gap: 10px;
     margin-bottom: 2rem;
+}
+.search-box {
+    background: #0c0c0c !important;
+    margin: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+.search-box input {
+    width: 300px;
+}
+button {
+    cursor: pointer;
+}
+.container input, .container select, .container button, .container textarea {
+    border: none;
+    background: #181818 !important;
+    padding: 10px 20px;
+    font-size: 20px;
+    color: white !important;
+    outline: none;
+    box-shadow: none !important;
+}
+.container input:hover, .container select:hover, .container button:hover {
+    background: #2d2d2d !important;
 }
 .pay-btn {
     background: white;
@@ -49,7 +73,10 @@ body {
 }
 .message {
     background: #363535;
-    padding: 5px;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 20px;
+    transform: scale(1.2);
 }
 .message.own {
     background: #8d2424;
@@ -239,6 +266,27 @@ body {
     transition: .3s ease-in;
     cursor: pointer;
 }
+header, body {
+    margin: 0 !important;
+}
+.navbar {
+    padding: 0 20px;
+    background: black;
+}
+.menu__item {
+    font-size: 18px;
+    color: white;
+    font-family: none, sans-serif;
+    height: 100%;
+    padding: 0 10px;
+}
+.menu__item:hover {
+    color: red;
+}
+.menu {
+    margin: 0 !important;
+}
+
 #support-toggler.active {
     transform: rotate(0deg);
 }
@@ -332,6 +380,8 @@ html{
 .ad {
     height: 100px;
     width: 25%;
+    background-size: cover;
+    background-position: center;
 }
 .username small {
     font-size: 12px;
@@ -845,7 +895,7 @@ header{
 footer{
     margin-top: 20px;
     padding: 20px;
-    background-color:  #52057b;
+    background-color: #000000;
     display: block;
     text-align: center;
 }
@@ -860,12 +910,15 @@ footer{
 }
 
 .table-head div{
-    padding: 5px;
+    padding: 15px 20px;
     margin: 2px;
-    background-color: #2C2C2C;
+    background-color: #111314;
     font-weight: bold;
+    font-family: none, sans-serif;
 }
-
+* {
+    font-family: none, sans-serif;
+}
 .table-head .status{
     flex: 5%;
 }
@@ -972,6 +1025,14 @@ footer{
 
 .authors{
     flex: 20%;
+    background: #202124;
+    border: 1px solid #57006e;
+    padding: 20px;
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .content{
